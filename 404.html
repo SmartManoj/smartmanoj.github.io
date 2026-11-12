@@ -1,0 +1,22 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Page not found</title>
+<script>
+// GitHub Pages matches project paths with exact case, so /modern-proverbs/...
+// lands here. Send any other case form to the real project path.
+(function () {
+  var sites = ['ARC-Interactive', 'ClaudeCodeTips', 'Modern-Proverbs', 'Santa-Scoreboard'];
+  var parts = location.pathname.split('/');
+  var seg = (parts[1] || '').toLowerCase();
+  for (var i = 0; i < sites.length; i++) {
+    if (parts[1] !== sites[i] && seg === sites[i].toLowerCase()) {
+      parts[1] = sites[i];
+      location.replace(parts.join('/') + location.search + location.hash);
+      return;
+    }
+  }
+})();
+</script>
+<style>body{font:16px/1.5 system-ui,sans-serif;max-width:40em;margin:4em auto;padding:0 1em}</style>
+<h1>Page not found</h1>
+<p><a href="/">Go to the home page</a></p>
